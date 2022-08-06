@@ -1,5 +1,5 @@
-## Programming in Scala for Big Data Systems, Spring 2022
-Scala Project for Harvard Extension course CSCI-E88C, Spring, 2022. See https://courses.dce.harvard.edu/?details&srcdb=202202&crn=26278 for more details.
+## Programming in Scala for Big Data Systems, Fall 2022
+Scala Project for Harvard Extension course CSCI E-88C, Fall, 2022. See https://courses.dce.harvard.edu/?details&srcdb=202301&crn=16769 for more details.
 
 
 The project requires Java 8 or Java 11, Scala 2.13 and sbt 1.5.2+ environment to run.
