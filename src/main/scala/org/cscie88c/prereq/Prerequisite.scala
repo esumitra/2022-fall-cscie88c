@@ -14,7 +14,7 @@ object Prerequisite {
 
   // a function for returning a list retail transactions with amounts greater than $100
   def getFilteredTransactions(transactions: List[CustomerTransaction]): List[CustomerTransaction] = 
-    transactions.filter(_.transactionAmount > 100)
+    transactions.filter(_.transactionAmount <= 100)
   
   // a function for returning a tuple of month and year given a string of the form "day-month-year"
   def getMonthAndYear(date: String): (String, String) = {
