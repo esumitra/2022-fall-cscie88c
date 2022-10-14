@@ -23,6 +23,9 @@ object Dependencies {
     // support for typesafe configuration
     "com.github.pureconfig" %% "pureconfig" % pureconfigVersion,
 
+    // parallel collections
+    "org.scala-lang.modules" %% "scala-parallel-collections" % "1.0.4",
+    
     // logging
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
     "ch.qos.logback" % "logback-classic" % "1.2.3"
