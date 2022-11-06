@@ -8,7 +8,7 @@ import org.apache.spark.sql.{Dataset}
 import pureconfig.generic.auto._
 
 // write config case class below
-// case class SparkDSConfig()
+case class SparkDSConfig(name: String, masterUrl: String)
 
 // run with: sbt "runMain org.cscie88c.week9.SparkDSApplication"
 object SparkDSApplication {
