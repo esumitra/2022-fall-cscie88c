@@ -16,13 +16,14 @@ object WordCountApp {
 
   def main(args: Array[String]): Unit = {
     import Serdes._
-
+    val statePath = fullPath("./kafkastate")
     // 1. define kafka streams properties, usually from a config file
     val props: Properties = {
       val p = new Properties()
       p.put(StreamsConfig.APPLICATION_ID_CONFIG, "wordcount-application")
       p.put(StreamsConfig.BOOTSTRAP_SERVERS_CONFIG, "localhost:9092")
-      p.put(StreamsConfig.STATE_DIR_CONFIG,fullPath("./kafkastate"))
+      p.put(StreamsConfig.CLIENT_ID_CONFIG, "wordcount-application-client")
+      p.put(StreamsConfig.STATE_DIR_CONFIG, statePath)
       p
     }
 
@@ -33,16 +34,15 @@ object WordCountApp {
 
     // 3. transform the data
     val wordCounts: KTable[String, Long] = textLines
-      .flatMapValues(textLine => textLine.toLowerCase.split("\\W+"))
+      .flatMapValues(textLine => textLine.toLowerCase().split("\\W+"))
       .groupBy((_, word) => word)
-      .count()(Materialized.as("wordcounts"))
+      .count()(Materialized.as("wordcount"))
 
     // 4. write the results to a topic or other persistent store
     wordCounts
+      .mapValues((word, count) => s"$word: $count")
       .toStream
       // .peek((k,t) => println(s"stream element: $k: $t")) // to print items in stream
-      .filter((_, count) => count > 5)
-      .map((word, count) => (word, s"$word: $count"))
       .to("WordsWithCountsTopic")
 
     // 5. start the streams application
