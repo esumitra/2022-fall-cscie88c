@@ -8,7 +8,7 @@ import org.apache.spark.rdd.{RDD}
 import pureconfig.generic.auto._
 
 // write case class below
-// case class SparkRDDConfig()
+case class SparkRDDConfig(name: String, masterUrl: String)
 
 // run with: sbt "runMain org.cscie88c.week9.SparkRDDApplication"
 object SparkRDDApplication {

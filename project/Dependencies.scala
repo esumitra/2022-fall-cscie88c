@@ -31,6 +31,10 @@ object Dependencies {
     // "org.apache.spark" %% "spark-sql" % sparkVersion % Provided, // for submiting spark app as a job to cluster
     "org.apache.spark" %% "spark-sql" % sparkVersion, // for simple standalone spark app
     
+    // kafka streams
+    "org.apache.kafka" %% "kafka-streams-scala" % "2.7.0",
+    "com.goyeau" %% "kafka-streams-circe" % "0.6.3",
+
     // logging
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
     "ch.qos.logback" % "logback-classic" % "1.2.3"
