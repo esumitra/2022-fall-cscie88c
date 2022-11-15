@@ -50,7 +50,7 @@ object SimpleAkkaStreamsStages {
   /**
    * calculates aagregate in batches of groupSize and 
    */
-  def groupedAggregate[A: Monoid](groupSize: Int) = {
+  def groupedAggregate[A: Monoid](groupSize: Int): Flow[A,A,NotUsed] = {
     Flow[A].grouped(groupSize).map { group =>
       group.reduce(_ |+| _)
     }

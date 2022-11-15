@@ -7,8 +7,6 @@ import akka.actor.ActorSystem
 import scala.concurrent._
 import scala.concurrent.duration._
 import com.typesafe.config.Config
-// import akka.kafka.{ProducerSettings, ConsumerSettings}
-// import org.apache.kafka.common.serialization.{StringSerializer, ByteArrayDeserializer, StringDeserializer}
 
 object AkkaStreamUtils {
   def actorSystemInstance(
