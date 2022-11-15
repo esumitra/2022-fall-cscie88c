@@ -10,6 +10,7 @@ object Dependencies {
   val pureconfigVersion = "0.15.0"
   val catsVersion = "2.2.0"
   val sparkVersion = "3.2.1"
+  val AkkaVersion = "2.6.19"
 
   lazy val core = Seq(
     // cats FP libary
@@ -35,6 +36,9 @@ object Dependencies {
     "org.apache.kafka" %% "kafka-streams-scala" % "2.7.0",
     "com.goyeau" %% "kafka-streams-circe" % "0.6.3",
 
+    // akka streams
+    "com.typesafe.akka" %% "akka-stream" % AkkaVersion,
+    
     // logging
     "com.typesafe.scala-logging" %% "scala-logging" % "3.9.2",
     "ch.qos.logback" % "logback-classic" % "1.2.3"
